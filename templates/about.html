@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assistance Request Categorization</title>
+    <!--
+
+    Template 2108 Dashboard
+
+	http://www.tooplate.com/view/2108-dashboard
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/fontawesome.min.css')}}">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/fullcalendar.min.css')}}">
+    <!-- https://fullcalendar.io/ -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/tooplate.css')}}">
+</head>
+
+<body id="reportsPage">
+    <div class="" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                        <a class="navbar-brand" href="{{url_for('index')}}">
+                            <h1 class="tm-site-title mb-0">Machine Predicted Categorization</h1>
+                        </a>
+                        <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{url_for('about')}}">About
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                    <a class='nav-link' href="{{url_for('hyperparameters')}}">Hyperparameters
+                                        <span class='sr-only'>(current)</span>
+                                    </a>
+                                </li>
+
+    
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- row -->
+            <div class="row tm-content-row tm-mt-big">
+                <div class="row">
+                    <h1>About Our Project</h1>
+                    <p>For our data prediction model, we extracted text chat support transcripts from WordPress.com
+                        customers on the Personal, Premium, and Business Plans. Using classification models against
+                        vectorized text data, we predicted which plan the transcript was associated with. Because the
+                        three plans had approximately equal subscribers, we had about 33% chance to predict correctly by
+                        guessing any one plan for every chat; our models brought us closer to 50% accuracy. There was
+                        some variance amongst the 12 algorithms tried within the scikit-learn library.</p>
+                    <div class="row"><div class="col">
+                        <p>To further diversify our models and hopefully achieve greater accuracy, we included Facebook’s
+                        open source library fastText. While relatively straightforward to use, fastText proved to be
+                        limited in its simplicity. Due to those limitations, we had to manually generate data for
+                        confusion matrices and related measurements. “Manually” included writing nine nested if
+                        statements to create the needed nine variables.</p><p>To compare the accuracy of our models, we took our full data set, shuffled it for every run, and
+                            ran it at each size. With fastText, the accuracy of the prediction was a direct correlation to
+                            the size of the sample. This correlation most likely denotes overfitting the data rather than an
+                            actual informed prediction. The multiple algorithms run through sci-kit learn had different
+                            peaks for optimal prediction and may therefore have more reliable accuracy. However, we feel
+                            there may just not be a reasonable or reliable way to predict the customer’s plan given the
+                            nature of this data. Perhaps customer interactions are truly universal across the three plans.
+                        </p></div>
+                        <div class="col-4">
+                        <img src="{{url_for('static', filename='img/nestedIf.png')}}" width="350"
+                        height="400" alt="fastText Confusion Matrix"></div></div>
+                    
+                    <p>We sampled 80,000 transcripts over 16 months. Future analysis on this dataset could include
+                        sentiment analysis or analysis of how support interactions have changed over time all the way
+                        from length of interaction (time, word count) and topics covered.</p>
+                    <p>Also, these models seemingly benefit from a binary set of labels, or rather a binary set of
+                        possibilities. When talking about true positives and false negatives, the buckets get messy with
+                        three labels. Jen mentioned the “Business” plan yielded the most revenue. So, another route to
+                        try for a future approach would be to consider Business a positive and the occurrence of any
+                        other plan a negative. </p>
+                </div>
+
+            </div>
+            <footer class="row tm-mt-small">
+                <div class="col-12 font-weight-light">
+                    <p class="d-inline-block tm-bg-black text-white py-2 px-4">
+                        Content Copyright &copy; 2019. Created By Eva-Marie Hamilton, Jen Wilson & Jarred Armijo
+                             Page Design: Copyright &copy; 2018. Created by
+                        <a href="http://www.tooplate.com" class="text-white tm-footer-link">Tooplate</a> | Distributed
+                        by <a href="https://themewagon.com" class="text-white tm-footer-link">ThemeWagon</a>
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="{{url_for('static', filename='js/moment.min.js')}}"></script>
+    <!-- https://momentjs.com/ -->
+    <script src="{{url_for('static', filename='js/utils.js')}}"></script>
+    <script src="{{url_for('static', filename='js/Chart.min.js')}}"></script>
+    <!-- http://www.chartjs.org/docs/latest/ -->
+    <script src="{{url_for('static', filename='js/fullcalendar.min.js')}}"></script>
+    <!-- https://fullcalendar.io/ -->
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script src="{{url_for('static', filename='js/tooplate-scripts.js')}}"></script>
+</body>
+
+</html>

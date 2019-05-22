@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assistance Request Categorization</title>
+    <!--
+
+    Template 2108 Dashboard
+
+	http://www.tooplate.com/view/2108-dashboard
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/fontawesome.min.css')}}">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/fullcalendar.min.css')}}">
+    <!-- https://fullcalendar.io/ -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/tooplate.css')}}">
+</head>
+
+<body id="reportsPage">
+    <div class="" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                        <a class="navbar-brand" href="{{url_for('index')}}">
+                            <h1 class="tm-site-title mb-0">Machine Predicted Categorization</h1>
+                        </a>
+                        <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url_for('about')}}">About
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                    <a class='nav-link active' href="{{url_for('hyperparameters')}}">Hyperparameters
+                                        <span class='sr-only'>(current)</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- row -->
+            <div class="row tm-content-row tm-mt-big">
+
+
+            </div>
+            <div class="col">
+                <h1>Hyperparameters</h1>
+                <p>Of the 12 classification models used, the gradient boosting classifier performed best. We built upon
+                    this by
+                    experimenting with hyperparameters:</p>
+                <table class='table table-borderless table-condensed table-hover'>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Individually optimized hyperparameters</th>
+                            <td>42.3%</td>
+                        </tr>
+                        <tr>
+                            <th>No hyperparameters</th>
+                            <td>46.7%
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Subsequently optimized hyperparameters</th>
+                            <td>47.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>learning_rate</h3>
+               
+
+                    <p>“The learning rate shrinks the contribution of each tree by learning_rate.” Effectively it
+                        de-emphasizes each
+                        tree.</p>
+            
+                <h3>N_estimators</h3>
+                <p>“n_estimators represents the number of trees in the forest. Usually the higher the number of trees
+                    the better
+                    to learn the data. However, adding a lot of trees can slow down the training process considerably,
+                    therefore
+                    we do a parameter search to find the sweet spot.”</p>
+                <h3>max_depth</h3>
+                <p>“max_depth. This indicates how deep the built tree can be. The deeper the tree, the more splits it
+                    has and it
+                    captures more information about how the data.“</p>
+                <h3>min_samples_split</h3>
+                <p>“min_samples_split represents the minimum number of samples required to split an internal node. This
+                    can vary
+                    between considering at least one sample at each node to considering all of the samples at each
+                    node.“</p>
+                <h3>min_samples_leaf</h3>
+                <p>“min_samples_leaf is The minimum number of samples required to be at a leaf node. This similar to
+                    min_samples_splits, however, this describe the minimum number of samples of samples at the leafs.”
+                </p>
+                <h3>max_features</h3>
+                
+                <p>“max_features represents the number of features to consider when looking for the best split.”</p>
+                <p>Source:<a href="https://medium.com/all-things-ai/in-depth-parameter-tuning-for-gradient-boosting-3363992e9bae"> https://medium.com/all-things-ai/in-depth-parameter-tuning-for-gradient-boosting-3363992e9bae</a>
+                </p>
+            </div>
+            <footer class="row tm-mt-small">
+                <div class="col-12 font-weight-light">
+                    <p class="d-inline-block tm-bg-black text-white py-2 px-4">
+                        Content Copyright &copy; 2019. Created By Eva-Marie Hamilton, Jen Wilson & Jarred Armijo
+                             Page Design: Copyright &copy; 2018. Created by
+                        <a href="http://www.tooplate.com" class="text-white tm-footer-link">Tooplate</a> | Distributed
+                        by <a href="https://themewagon.com" class="text-white tm-footer-link">ThemeWagon</a>
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="{{url_for('static', filename='js/moment.min.js')}}"></script>
+    <!-- https://momentjs.com/ -->
+    <script src="{{url_for('static', filename='js/utils.js')}}"></script>
+    <script src="{{url_for('static', filename='js/Chart.min.js')}}"></script>
+    <!-- http://www.chartjs.org/docs/latest/ -->
+    <script src="{{url_for('static', filename='js/fullcalendar.min.js')}}"></script>
+    <!-- https://fullcalendar.io/ -->
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script src="{{url_for('static', filename='js/tooplate-scripts.js')}}"></script>
+
+</body>
+
+</html>
